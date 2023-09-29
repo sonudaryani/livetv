@@ -4,7 +4,7 @@ import cors from "cors";
 import os from "node:os";
 import 'dotenv/config';
 import chalk from "chalk";
-var ip = process.env.IP || "127.0.0.1";
+var ip = process.env.IP || "0.0.0.0";
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 import fs from "fs";
@@ -22,8 +22,8 @@ const __dirname = path.dirname(__filename);
 // let ip = networkInterfaces["eth0"][0]["address"];
 // fs["writeFileSync"]("./ipData.jiotv", ip);
 
-http.createServer(app).listen(process.env.DHRUV_JTV_PORT)
-console.info('listen to port', process.env.DHRUV_JTV_PORT)
+http.createServer(app).listen(PORT)
+console.info('listen to port', PORT)
 
 if (!fs.existsSync("channel.db")) {
   fs["writeFileSync"]("./channel.db", '{"channel": {}}');
