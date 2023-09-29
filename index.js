@@ -116,7 +116,7 @@ app.listen(PORT, ip, () => {
   );
   console.log(`TV server is running on port ${PORT}`);
   console.log(
-    `Please open http://localhost:${PORT}/login from the host to login and get playlist if running server for the first time`
+    `Please open http://${ip}:${PORT}/login from the host to login and get playlist if running server for the first time`
   );
   console.log(
     `Note: If hosted in a website, you may want to use the domain or its IP`
