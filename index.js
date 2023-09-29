@@ -1,4 +1,5 @@
 import express from "express";
+import http from "http";
 import cors from "cors";
 import os from "node:os";
 import 'dotenv/config';
@@ -19,6 +20,9 @@ const __dirname = path.dirname(__filename);
 // let networkInterfaces = os.networkInterfaces();
 // let ip = networkInterfaces["eth0"][0]["address"];
 // fs["writeFileSync"]("./ipData.jiotv", ip);
+
+http.createServer(app).listen(process.env.DHRUV_JTV_PORT)
+console.info('listen to port', process.env.DHRUV_JTV_PORT)
 
 if (!fs.existsSync("channel.db")) {
   fs["writeFileSync"]("./channel.db", '{"channel": {}}');
@@ -64,6 +68,13 @@ app.get("/favicon.ico", (req, res) => {
 import { handler } from "./build/handler.js";
 
 app.use(handler);
+
+app.get('/api/status', async (req, res)=>{
+  res.json({
+      success: true,
+      message: 'server is working fine'
+  });
+})
 
 app.listen(PORT, "0.0.0.0", () => {
   console.log(
