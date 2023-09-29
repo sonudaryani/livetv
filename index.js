@@ -4,7 +4,7 @@ import cors from "cors";
 import os from "node:os";
 import 'dotenv/config';
 import chalk from "chalk";
-var ip = process.env.IP || '192.168.1.1';
+var ip = process.env.IP || '0.0.0.0';
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 import fs from "fs";
