@@ -4,6 +4,7 @@ import cors from "cors";
 import os from "node:os";
 import 'dotenv/config';
 import chalk from "chalk";
+var ip = process.env.IP || '192.168.1.1';
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 import fs from "fs";
@@ -76,7 +77,7 @@ app.get('/api/status', async (req, res)=>{
   });
 })
 
-app.listen(PORT, "0.0.0.0", () => {
+app.listen(PORT, ip, () => {
   console.log(
     "==================================================================="
   );
